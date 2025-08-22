@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+     <a href="specification.html">Specification</a>
+<h2 id="title">Car Specifications</h2>
+  <img id="carImage" src="" alt="Car Image">
+
+  <ul id="carDetails"></ul>
+  <script>
+      const cars = {
+      a: {
+        title: "Car A - NISSAN GTR",
+        img: "a.png",
+        details: [
+          "Stock: C24-1186",
+          "Location: Mombasa, Kenya",
+          "Model: Lambo220",
+          "Registration: 2018",
+          "Model Code: RTC23",
+          "Body Type: Compact SUV",
+          "Engine: 2000cc / Petrol",
+          "Transmission: Automatic",
+          "Exterior Color: Blue",
+          "Doors: 2",
+          "Seats: 2",
+          "Drive Side: Right-hand side"
+        ]
+      },
+      b: {
+        title: "Car B - Ferrari488",
+        img: "b.png",
+        details: [
+          "Stock: B90-5521",
+          "Location: Nairobi, Kenya",
+          "Model: Ferrari488",
+          "Registration: 2020",
+          "Model Code: F488GT",
+          "Body Type: Coupe",
+          "Engine: 3900cc / Petrol Turbo",
+          "Transmission: Automatic",
+          "Exterior Color: Red",
+          "Doors: 2",
+          "Seats: 2",
+          "Drive Side: Left-hand side"
+        ]
+      },
+      c: {
+        title: "Car C - RangeRover Evoque",
+        img: "c.png",
+        details: [
+          "Stock: C78-2231",
+          "Location: Kisumu, Kenya",
+          "Model: RangeRover Evoque",
+          "Registration: 2019",
+          "Model Code: RR-EV19",
+          "Body Type: SUV",
+          "Engine: 2200cc / Diesel",
+          "Transmission: Automatic",
+          "Exterior Color: Black",
+          "Doors: 4",
+          "Seats: 5",
+          "Drive Side: Right-hand side"
+        ]
+      },
+      d: {
+        title: "Car D - ROLLSROYCE",
+        img: "d.png",
+        details: [
+          "Stock: D45-9022",
+          "Location: Nakuru, Kenya",
+          "Model: Nissan GTR",
+          "Registration: 2021",
+          "Model Code: GTR35",
+          "Body Type: Sports Coupe",
+          "Engine: 3800cc / Petrol Turbo",
+          "Transmission: Automatic",
+          "Exterior Color: Silver",
+          "Doors: 2",
+          "Seats: 4",
+          "Drive Side: Left-hand side"
+        ]
+      }
+    };
+
+    // Get car from URL
+    const params = new URLSearchParams(window.location.search);
+    const carKey = params.get("car");
+
+    if (carKey && cars[carKey]) {
+      document.getElementById("title").textContent = cars[carKey].title;
+      document.getElementById("carImage").src = cars[carKey].img;
+
+      const detailsList = document.getElementById("carDetails");
+      cars[carKey].details.forEach(detail => {
+        const li = document.createElement("li");
+        li.textContent = detail;
+        detailsList.appendChild(li);
+      });
+    } else {
+      document.getElementById("title").textContent = "Car not found!";
+    }
+    function goToOrder() {
+    // Preserve the car from URL
+    const params = new URLSearchParams(window.location.search);
+    const carKey = params.get("car");
+
+    if (carKey) {
+      window.location.href = "order.html?car=" + carKey; 
+    } else {
+      alert("Please select a car first!");
+    }
+  }
+  </script>
+
+  <button onclick="location.href='gallery.html'">back</button> 
+  <button onclick="goToOrder()">Next</button>
+   
+
+ 
+    
+</body>
+</html>

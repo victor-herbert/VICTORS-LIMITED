@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Soko</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #searchBar {
+      width: 300px;
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px; border-bottom: 1px solid #ddd; display: none; }
+    .fg{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+   <a href="home.html">Dashboard</a>
+    <br>
+   
+
+  <h2>WELCOME TO VICTORS CAR LIMITED</h2>
+  <h2>RIDE WITH HAPPINESS</h2>
+  <p>we have all types of cars you need</p>
+  <P>After searching and confirming that your ideal car is here please press next to view it on gallery</P>
+
+ 
+  <input type="text" id="searchBar" placeholder="Search for a car..." onkeyup="searchCars()">
+
+ 
+  <ul id="carList">
+    <li>rollsroyce</li>
+    <li>lambo</li>
+    <li>ferrari</li>
+    <li>rangerover</li>
+    <li>Nissan gtr</li>
+  </ul>
+
+  <script>
+    function searchCars() {
+      let input = document.getElementById("searchBar").value.toLowerCase();
+      let cars = document.getElementById("carList").getElementsByTagName("li");
+
+      for (let i = 0; i < cars.length; i++) {
+        let car = cars[i].textContent.toLowerCase();
+        if (input && car.includes(input)) {
+          cars[i].style.display = "block"; 
+        } else {
+          cars[i].style.display = "none"; 
+        }
+      }
+    }
+  </script>
+  <br>
+  <marquee class="fg"><h1>WE HAVE OFFERS EVERY MONTH</h1></marquee>
+  
+  <br>
+    <div class="div"></div>
+    <style>
+        .div{
+            display: flex;
+            align-content: center;
+            padding-left: 10%;
+           padding-top: 30%;
+            padding-bottom:30% ;
+            background-size: cover;
+        box-shadow: 20px 20px 10px green;
+        animation: slider 50s linear infinite;
+       
+        }
+         @keyframes slider {
+            10%{background-image:url(a.png);}
+           20%{background-image: url(b.png);}
+          30%{background-image: url(c.png);}
+             40%{background-image: url(d.png);}
+            
+        }
+    </style>
+    <br>
+     <button onclick="location.href='login.html'">back</button><button onclick="location.href='gallery.html'">Next</button>
+     
+
+</body>
+</html>
+ 
